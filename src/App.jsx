@@ -16,8 +16,8 @@ const QuizApp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const API_URL = "/api/Uw5CrX"; // Replace with your API endpoint
-        const response = await axios.get(API_URL);
+         // Replace with your API endpoint
+        const response = await axios.get(import.meta.env.VITE_API_URL);
         setQuizData(response.data.questions);
       } catch (error) {
         setError(error.message);
