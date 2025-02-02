@@ -16,9 +16,13 @@ const QuizApp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-         // Replace with your API endpoint
-        const response = await axios.get("https://api.jsonserve.com/api/Uw5CrX");
-        setQuizData(response.data.questions);
+        // Replace with your API endpoint
+        const response = await axios.get(`https://api.allorigins.win/get?url=${encodeURIComponent("https://api.jsonserve.com/Uw5CrX")}`);
+        // console.log(response.data);
+        const parsedData = JSON.parse(response.data.contents);
+        // console.log(parsedData);
+        
+        setQuizData(parsedData.questions);
       } catch (error) {
         setError(error.message);
       } finally {
