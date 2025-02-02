@@ -17,7 +17,7 @@ const QuizApp = () => {
     const fetchData = async () => {
       try {
          // Replace with your API endpoint
-        const response = await axios.get("/api/Uw5CrX");
+        const response = await axios.get("https://api.jsonserve.com/api/Uw5CrX");
         setQuizData(response.data.questions);
       } catch (error) {
         setError(error.message);
