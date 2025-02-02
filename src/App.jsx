@@ -13,9 +13,15 @@ const QuizApp = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const API_URL = "http://api.jsonserve.com/Uw5CrX";
-        const response = await axios.get(API_URL);
-        setQuizData(response.data.questions); // Assuming the API returns an object with 'questions' array
+        const API_URL = "/api/Uw5CrX"; // Use the proxy path here
+        const response = await axios.get(API_URL, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        console.log("Response:", response.data.questions);
+        setQuizData(response.data.questions);
       } catch (error) {
         console.error("Fetch error:", error.message);
         setError(error.message);
